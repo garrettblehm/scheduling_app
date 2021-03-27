@@ -1,0 +1,8 @@
+<%= content_tag :tr, id: dom_id(business), class: dom_class(business) do %>
+  <td>
+    <%= link_to business.name, business %>
+  </td>
+  <td>
+    <%= business.description %>
+  </td>
+<% end %>

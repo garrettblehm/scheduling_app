@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to slots_path, class: 'btn btn-default' do %>
+    All Slots
+  <% end %>
+  <%= link_to edit_slot_path(@slot), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show slot</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Starts at:</dt>
+  <dd><%= @slot.starts_at %></dd>
+
+  <dt>Ends at:</dt>
+  <dd><%= @slot.ends_at %></dd>
+
+  <dt>Note:</dt>
+  <dd><%= @slot.note %></dd>
+
+  <dt>Business:</dt>
+  <dd><%= @slot.business %></dd>
+
+  <dt>Max capacity:</dt>
+  <dd><%= @slot.max_capacity %></dd>
+
+</dl>

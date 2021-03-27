@@ -1,4 +1,4 @@
-<%%= form_with(model: <%= model_resource_name %>, local: true) do |form| %>
+<%%= form_with(model: <%= model_resource_name %>) do |form| %>
   <%% if <%= singular_table_name %>.errors.any? %>
     <div id="error_explanation">
       <h2><%%= pluralize(<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
@@ -38,9 +38,9 @@
     <%%= form.submit class: 'btn btn-primary' %>
 
     <%% if <%= model_resource_name %>.persisted? %>
-      <%%= link_to "Cancel", <%= model_resource_name %>, class: "btn btn-link" %>
+      <%%= link_to "Cancel", <%= model_resource_name %>, class: "btn btn-secondary" %>
     <%% else %>
-      <%%= link_to "Cancel", <%= index_helper %>_path, class: "btn btn-link" %>
+      <%%= link_to "Cancel", <%= index_helper %>_path, class: "btn btn-secondary" %>
     <%% end %>
   </div>
 <%% end %>

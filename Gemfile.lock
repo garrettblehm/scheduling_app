@@ -125,6 +125,10 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
+    hotwire-rails (0.1.3)
+      rails (>= 6.0.0)
+      stimulus-rails
+      turbo-rails
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -307,11 +311,12 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stimulus-rails (0.2.3)
+      rails (>= 6.0.0)
     thor (1.1.0)
     tilt (2.0.10)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
+    turbo-rails (0.5.9)
+      rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -356,6 +361,7 @@ DEPENDENCIES
   devise_masquerade (~> 1.2)
   font-awesome-sass (~> 5.13)
   friendly_id (~> 5.3)
+  hotwire-rails
   image_processing
   jbuilder (~> 2.7)
   listen (~> 3.3)
@@ -371,7 +377,7 @@ DEPENDENCIES
   pundit (~> 2.1)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3)
-  redis (~> 4.2, >= 4.2.2)
+  redis (~> 4.0)
   rubocop-performance
   rubocop-rails
   sass-rails (>= 6)
@@ -379,10 +385,9 @@ DEPENDENCIES
   sidekiq (~> 6.1)
   sitemap_generator (~> 6.1, >= 6.1.2)
   spring
-  turbolinks (~> 5)
   web-console (>= 4.1.0)
   webdrivers
-  webpacker (~> 5.0)
+  webpacker (~> 5.2)
   whenever
 
 RUBY VERSION

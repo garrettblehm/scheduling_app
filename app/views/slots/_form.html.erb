@@ -1,0 +1,54 @@
+<%= form_with(model: slot) do |form| %>
+  <% if slot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(slot.errors.count, "error") %> prohibited this slot from being saved:</h2>
+
+      <ul>
+      <% slot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :starts_at %>
+    <%= form.datetime_select :starts_at, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ends_at %>
+    <%= form.datetime_select :ends_at, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :note %>
+    <%= form.text_area :note, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :business_id %>
+    <%= form.text_field :business_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :max_capacity %>
+    <%= form.number_field :max_capacity, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if slot.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', slot, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if slot.persisted? %>
+      <%= link_to "Cancel", slot, class: "btn btn-secondary" %>
+    <% else %>
+      <%= link_to "Cancel", slots_path, class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+<% end %>

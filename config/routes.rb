@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :slots
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
   authenticate :user, ->(u) { u.admin? } do
@@ -22,11 +23,18 @@ Rails.application.routes.draw do
       end
       resources :services
       resources :users
+      resources :businesses
       root to: 'dashboard#show'
     end
   end
 
-  resources :notifications, only: [:index]
+  resources :businesses, only: [:index]
+
+  authenticate :user, ->(u) { u.owner? } do
+    resources :businesses
+  end
+
+  resources :notifications, only: %i[index show]
   resources :announcements, only: [:index]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'home#index'

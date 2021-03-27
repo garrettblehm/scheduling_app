@@ -14,13 +14,11 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'webpacker', '~> 5.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -64,6 +62,7 @@ gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootst
 gem 'devise_masquerade', '~> 1.2'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'friendly_id', '~> 5.3'
+gem 'hotwire-rails'
 gem 'image_processing'
 gem 'madmin'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
@@ -73,7 +72,6 @@ gem 'omniauth-facebook', '~> 6.0'
 gem 'omniauth-github', '~> 1.4'
 gem 'omniauth-twitter', '~> 1.4'
 gem 'pundit', '~> 2.1'
-gem 'redis', '~> 4.2', '>= 4.2.2'
 gem 'sidekiq', '~> 6.1'
 gem 'sitemap_generator', '~> 6.1', '>= 6.1.2'
 gem 'whenever', require: false

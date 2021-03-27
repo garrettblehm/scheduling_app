@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to businesses_path, class: 'btn btn-primary' do %>
+    All Businesses
+  <% end %>
+  <%= link_to edit_business_path(@business), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show business</h1>
+</div>
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @business.name %></dd>
+  <dt>Description:</dt>
+  <dd><%= @business.description %></dd>
+  <h4>Address</h4>
+  <dt>Street:</dt>
+  <dd><%= @business.address[:street] %></dd>
+  <dt>City:</dt>
+  <dd><%= @business.address[:city] %></dd>
+  <dt>State:</dt>
+  <dd><%= @business.address[:state] %></dd>
+  <dt>Zipcode:</dt>
+  <dd><%= @business.address[:zipcode] %></dd>
+  <dt>Logo:</dt>
+  <dd><%= image_tag logo_path(@business), class: "rounded border shadow-sm d-block mx-auto my-3" %></dd>
+</dl>
