@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SlotsController < ApplicationController
+  before_action :set_business
   before_action :set_slot, only: %i[show edit update destroy]
 
   # GET /slots or /slots.json
@@ -22,10 +23,11 @@ class SlotsController < ApplicationController
   # POST /slots or /slots.json
   def create
     @slot = Slot.new(slot_params)
+    @slot.business = @business
 
     respond_to do |format|
       if @slot.save
-        format.html { redirect_to @slot, notice: 'Slot was successfully created.' }
+        format.html { redirect_to [@business, @slot], notice: 'Slot was successfully created.' }
         format.json { render :show, status: :created, location: @slot }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -61,6 +63,10 @@ class SlotsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_slot
     @slot = Slot.find(params[:id])
+  end
+
+  def set_business
+    @business = Business.find(params[:business_id])
   end
 
   # Only allow a list of trusted parameters through.

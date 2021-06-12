@@ -1,49 +1,32 @@
-
-
-
 <div class="row">
   <div class="col-sm-6">
     <h1>Slots</h1>
   </div>
-
   <div class="col-sm-6 text-right">
-  <%= link_to new_slot_path, class: 'btn btn-primary' do %>
-    Add New Slot
-  <% end %>
+    <%= link_to new_business_slot_path(@business), class: 'btn btn-primary' do %>
+      Add New Slot
+    <% end %>
   </div>
 </div>
-
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-    
-
-            <th>Starts at</th>
-            <th>Ends at</th>
-            <th>Note</th>
-            <th>Business</th>
-            <th>Max capacity</th>
-            
-          <th></th>
-        
+        <th>Starts at</th>
+        <th>Ends at</th>
+        <th>Note</th>
+        <th>Max capacity</th>
+        <th></th>
       </tr>
     </thead>
-
     <tbody>
       <% @slots.each do |slot| %>
         <%= content_tag :tr, id: dom_id(slot), class: dom_class(slot) do %>
-          
-
-                      <td><%= slot.starts_at %></td>
-                      <td><%= slot.ends_at %></td>
-                      <td><%= slot.note %></td>
-                      <td><%= slot.business %></td>
-                      <td><%= slot.max_capacity %></td>
-          
-          
-            <td><%= link_to 'Show', slot %></td>
-          
+          <td><%= slot.starts_at %></td>
+          <td><%= slot.ends_at %></td>
+          <td><%= slot.note %></td>
+          <td><%= slot.max_capacity %></td>
+          <td><%= link_to 'Show', [@business, slot] %></td>
         <% end %>
       <% end %>
     </tbody>

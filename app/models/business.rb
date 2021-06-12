@@ -4,6 +4,7 @@ class Business < ApplicationRecord
   # include Addressable
 
   belongs_to :user
+  has_many :slots
   has_one_attached :logo
   serialize :address, Hash
 

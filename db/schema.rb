@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_021951) do
+ActiveRecord::Schema.define(version: 2021_03_27_171539) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -97,6 +97,18 @@ ActiveRecord::Schema.define(version: 2021_03_16_021951) do
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
+  create_table "slots", charset: "utf8mb4", force: :cascade do |t|
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.text "note"
+    t.bigint "business_id", null: false
+    t.integer "max_capacity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_slots_on_business_id"
+    t.index ["starts_at"], name: "index_slots_on_starts_at"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -122,4 +134,5 @@ ActiveRecord::Schema.define(version: 2021_03_16_021951) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses", "users"
   add_foreign_key "services", "users"
+  add_foreign_key "slots", "businesses"
 end

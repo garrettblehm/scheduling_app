@@ -3,7 +3,6 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :slots
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
   authenticate :user, ->(u) { u.admin? } do
@@ -28,7 +27,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :businesses, only: [:index]
+  resources :businesses, only: [:index] do
+    resources :slots
+  end
 
   authenticate :user, ->(u) { u.owner? } do
     resources :businesses
